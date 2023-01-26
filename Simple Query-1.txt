@@ -1,0 +1,202 @@
+SQL>
+Create table Student1 (rno number(2),name varchar(20),class varchar2(20),per number(3,2));
+
+SQL>
+desc Student1
+Table	Column	Data Type	Length	Precision	     Scale   Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-	nullable		-	-
+ 	NAME	Varchar2		20		-		-		-	nullable		-	-
+ 	CLASS	Varchar2		20		-		-		-	nullable		-	-
+ 	PER		Number		-		3		2		-	nullable		-	-
+
+SQL>
+alter table Student1 modify(per number(5,2));
+Table altered.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+
+SQL>
+alter table Student1 add(Mobile_No number(10));
+Table altered.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+ 	MOBILE_NONumber		-		10		0		-			nullable		-		-
+SQL>
+
+insert into Student1 Values(1,'Sai','FY',78.09,9876543258);
+1 row(s) inserted.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+ 	MOBILE_NONumber		-		10		0		-			nullable		-		-
+
+SQL>
+insert into Student1 (rno ,name ,class ,per ,Mobile_No)Values(1,'Sai','FY',78.09,9876543258);
+1 row(s) inserted.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+ 	MOBILE_NONumber		-		10		0		-			nullable		-		-
+
+Select * From Student1;
+RNO	NAME	CLASS	PER	MOBILE_NO
+1	Sai	FY	78.09	9876543258
+1	Sai	FY	78.09	9876543258
+1	Sai	FY	78.09	9876543258
+
+SQL>
+insert  into Student1 (rno,name,class,per,Mobile_No)Values(2,'OM','SY',67.89,9869946930);
+1 row(s) inserted.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+ 	MOBILE_NONumber		-		10		0		-			nullable		-		-
+
+SQL>
+insert  into Student1 (rno,name,class,per,Mobile_No)Values(3,'Hari','FY',60.80,9869086479);
+1 row(s) inserted.
+
+SQL>
+desc Student1
+Table	Column	Data Type		Length	Precision	Scale		Primary Key	Nullable	    Default	Comment
+STUDENT1	RNO	Number		-		2		0		-			nullable		-		-
+ 	NAME	Varchar2		20		-		-		-			nullable		-		-
+ 	CLASS	Varchar2		20		-		-		-			nullable		-		-
+ 	PER		Number		-		5		2		-			nullable		-		-
+ 	MOBILE_NONumber		-		10		0		-			nullable		-		-
+
+SQL>
+Select * from Student1;
+RNO	NAME	CLASS	PER	MOBILE_NO
+1	Sai	FY	78.09	9876543258
+1	Sai	FY	78.09	9876543258
+1	Sai	FY	78.09	9876543258
+2	OM	SY	67.89	9869946930
+3	Hari	FY	60.8		9869086479
+
+SQL>
+delete from Student1 where rno=1 and class='FY';
+3 row(s) deleted.
+
+SQL>
+Select * From Student1;
+RNO	NAME	CLASS	PER		MOBILE_NO
+2	OM		SY		67.89	9869946930
+3	Hari		FY		60.8		9869086479
+
+SQL>
+delete from Student1 where name='OM';
+1 row(s) deleted.
+
+SQL>
+Select * From Student1;
+RNO	NAME	CLASS	PER	    MOBILE_NO
+3	Hari		FY		60.8	    9869086479
+
+SQL>
+delete from Student1 where class ='SY';
+0 row(s) deleted.
+
+SQL>
+select * from Student1 where per>75;
+no data found
+
+SQL>
+select * from Student1 where class= 'FY' and  rno = 3;
+RNO	NAME	CLASS	PER		MOBILE_NO
+3	Hari		FY		60.8		9869086479
+
+SQL>
+insert into Student1 values(5,'Shree','SY',89.90,9876542856);
+1 row(s) inserted.
+
+SQL>
+insert into Student1 values(9,'Amruta','TY',78.09,7866598767);
+1 row(s) inserted.
+
+SQL>
+insert into Student1 values(26,'abhi','Ty',89.98,7687944038);
+1 row(s) inserted.
+
+SQL>
+update Student1 set class='Ty'where rno=9;
+1 row(s) updated.
+
+SQL>
+Select * From Student1;
+RNO	NAME	CLASS	PER		MOBILE_NO
+5	Shree	SY		89.9		9876542856
+9	Amruta	Ty		78.09	7866598767
+26	abhi		Ty		89.98	7687944038
+3	Hari		FY		60.8		9869086479
+
+SQL>
+select * from Student1 where name Like'A%';
+RNO	NAME	CLASS	PER		MOBILE_NO
+9	Amruta	Ty		78.09	7866598767
+
+SQL>
+select * from Student1 where name Like '%i';
+RNO	NAME	CLASS	PER			MOBILE_NO
+26	abhi		Ty		89.98		7687944038
+3	Hari		FY		60.8			9869086479
+
+SQL>
+select * from Student1 where name Like'_b%';
+RNO	NAME	CLASS	PER		MOBILE_NO
+26	abhi		Ty		89.98	7687944038
+
+SQL>
+select * from Student1 where name in ('Amruta','abhi');
+RNO	NAME	CLASS	PER		MOBILE_NO
+9	Amruta	Ty		78.09	7866598767
+26	abhi		Ty		89.98	7687944038
+
+SQL>
+Select * from Student1 where name not in ('Amruta','abhi');
+RNO	NAME	CLASS	PER		MOBILE_NO
+5	Shree	SY		89.9		9876542856
+3	Hari		FY		60.8		9869086479
+
+SQL>
+truncate table Student1;
+Table truncated.
+
+SQL>
+Select * From Student1;
+no data found
+
+SQL>
+drop table Student1;
+Table dropped.
+
+SQL>
+Select * From Student1;
+ORA-00942: table or view does not exist
