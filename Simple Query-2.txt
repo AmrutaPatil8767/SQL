@@ -1,0 +1,70 @@
+Create table EMP1(ID number(2),name varchar(20),Address nvarchar2(20));
+Table created.
+insert into EMP1 Values(1,'Harry','Pune');
+1 row(s) inserted.
+insert into EMP1 Values(2,'OM','Satara');
+1 row(s) inserted.
+insert into EMP1 Values(3,'Hari','Mumbai');
+1 row(s) inserted.
+insert into EMP1 Values(4,'Shri','Kolhapur');
+1 row(s) inserted.
+insert into EMP1 Values(5,'Raj','Gujarat');
+1 row(s) inserted.
+insert into EMP1 Values(6,'Jack','UK');
+1 row(s) inserted.
+
+Select * From EMP1;
+ID	NAME	ADDRESS
+1	Harry	Pune
+2	OM		Satara
+3	Hari		Mumbai
+4	Shri		Kolhapur
+5	Raj		Gujarat
+6	Jack		UK
+
+Select * From EMP1 Where ID <4;
+ID	NAME	ADDRESS
+1	Harry	Pune
+2	OM		Satara
+3	Hari		Mumbai
+
+Select * From EMP1 Where ID Between 1 And 5;
+ID	NAME	ADDRESS
+1	Harry	Pune
+2	OM	Satara
+3	Hari	Mumbai
+4	Shri	Kolhapur
+5	Raj	Gujarat
+
+Select * From EMP1 Where name like'H%';
+ID	NAME	ADDRESS
+1	Harry	Pune
+3	Hari		Mumbai
+
+
+Select * From EMP1 Where Address like '_u%';
+ID	NAME	ADDRESS
+1	Harry	Pune
+3	Hari		Mumbai
+5	Raj		Gujarat
+
+Desc EMP1;
+Table	Column	Data Type		Length	Precision	Scale	Primary Key	Nullable	Default	Comment
+EMP1	ID	Number		-		2		0		-		nullable		-	-
+ 	NAME	Varchar2		20		-		-		-		nullable		-	-
+ 	ADDRESS	Nvarchar2		40		-		-		-		nullable		-	-
+
+Delete From EMP1 Where ID =6;
+1 row(s) deleted.
+
+Truncate Table EMP1;
+Table truncated.
+
+Select * From EMP1;
+no data found
+
+Drop Table EMP1;
+Table dropped.
+
+Select * From EMP1;
+	ORA-00942: table or view does not exist
