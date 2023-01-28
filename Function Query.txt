@@ -1,0 +1,145 @@
+*****CASE MANIPULATION*****
+Select LOWER('Good Moring')from dual;
+LOWER('GOODMORING')
+good moring
+
+Select UPPER('Good Moring')from dual;
+UPPER('GOODMORING')
+GOOD MORING
+
+Select INITCAP('good mOring')from dual;
+INITCAP('GOODMORING')
+Good Moring
+
+***STRING MAINPULATION***
+Select LENGTH('Good Moring')from dual;
+LENGTH('GOODMORING')
+11
+
+Select CONCAT('Amruta','Patil')from dual;
+CONCAT('AMRUTA','PATIL')
+AmrutaPatil
+
+Select LTRIM('Good Moring','Good')from dual;
+LTRIM('GOODMORING','GOOD')
+Moring
+
+Select RTRIM('Good Moring','Moring')from dual;
+RTRIM('GOODMORING','MORING')
+Good
+
+Select TRIM('G'from 'Good Moring')from dual;
+TRIM('G'FROM'GOODMORING')
+ood Moring
+
+Select LPAD('Good',6,'*')from dual;
+LPAD('GOOD',6,'*')
+**Good
+
+Select RPAD('Good',8,'*')from dual;
+RPAD('GOOD',8,'*')
+Good****
+
+Select TRANSLATE('Amruta','rut',222)from dual;
+TRANSLATE('AMRUTA','RUT',222)
+Am222a
+
+Select REPLACE('Amruta','A',2)from dual;
+REPLACE('AMRUTA','A',2)
+2mruta
+
+Select SUBSTR('Amruta Patil',4,7)from dual;
+SUBSTR('AMRUTAPATIL',4,7)
+uta Pat
+
+Select INSTR('Amruta','r')from dual;
+INSTR('AMRUTA','R')
+3
+
+Select REVERSE('Amruta')from dual;
+REVERSE('AMRUTA')
+aturmA
+
+****NUMBERIC FUNCTION****
+Select ABS(-3)from dual;
+ABS(-3)
+3
+
+Select CEIL(4.10)from dual;
+CEIL(4.10)
+5
+
+Select FlOOR(6.49)from dual;
+FLOOR(6.49)
+6
+
+Select ROUND(123.3456)from dual;
+ROUND(123.3456)
+123
+
+Select TRUNC(123.3456,2)from dual;
+TRUNC(123.3456,2)
+123.34
+
+Select LN(3)from dual;
+LN(3)
+1.09861228866810969139524523692252570465
+
+Select LOG(10,100)from dual;
+LOG(10,100)
+2
+
+Select SQRT(16)from dual;
+SQRT(16)
+4
+
+Select POWER(2,3)from dual;
+POWER(2,3)
+8
+
+Select MOD(4,2)from dual;
+MOD(4,2)
+0
+
+***DATE FUNCATION***
+Select SYSDATE from dual;
+SYSDATE
+23-JAN-23
+
+Select CURRENT_DATE from dual;
+CURRENT_DATE
+23-JAN-23
+
+Select ADD_MONTHS(Sysdate,6)from dual;
+ADD_MONTHS(SYSDATE,6)
+23-JUL-23
+
+Select LAST_DAY(sysdate)from dual;
+LAST_DAY(SYSDATE)
+31-JAN-23
+
+Select  LAST_DAY('01-jul-2022')from dual;
+LAST_DAY('01-JUL-2022')
+31-JUL-22
+
+Select NEXT_DAY(current_date,'monday')from dual;
+NEXT_DAY(CURRENT_DATE,'MONDAY')
+30-JAN-23
+
+***ARITHMATIC FUNCATION***
+Select 12+5 from dual;
+12+5
+17
+
+Select 12-5 from dual;
+12-5
+7
+
+Select 2*5 from dual;
+2*5
+10
+
+Select 10/5 from dual;
+10/5
+2
+
