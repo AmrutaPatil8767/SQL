@@ -1,0 +1,125 @@
+Create table Student (S_rno number(10)primary key,S_name varchar(40),S_mno number(10));
+Table created.
+
+insert into Student Values(1,'om',9786543218);
+1 row(s) inserted.
+
+insert into Student Values(2,'Shree',7890543215);
+1 row(s) inserted.
+
+insert into Student Values(3,'Hari',6789045321);
+1 row(s) inserted.
+
+insert into Student Values(4,'Sai',8899776688);
+1 row(s) inserted.
+
+insert into Student Values(5,'Raj',7890098765);
+1 row(s) inserted.
+
+Select * from Student; 
+S_RNO	S_NAME	S_MNO
+1		om		9786543218
+2		Shree	7890543215
+4		Sai		8899776688
+5		Raj		7890098765
+3		Hari		6789045321
+
+update Student set S_name='Amruta'where S_rno=1;
+1 row(s) updated.
+
+Select * from Student;
+S_RNO	S_NAME	S_MNO
+1	Amruta	9786543218
+2	Shree	7890543215
+4	Sai		8899776688
+5	Raj		7890098765
+3	Hari		6789045321
+
+Create table Stud1(S1_ID number(10)primary key,S1_fee number(20),S1_rno number(10)references Student(S_rno));
+Table created.
+
+insert into Stud1 Values(101,2000,1);
+1 row(s) inserted.
+insert into Stud1 Values(102,2500,2);
+1 row(s) inserted.
+insert into Stud1 Values(103,3500,3);
+1 row(s) inserted.
+insert into Stud1 Values(104,2000,4);
+1 row(s) inserted.
+insert into Stud1 Values(105,2500,5);
+1 row(s) inserted.
+
+Select * from Stud1;
+S1_ID	S1_FEE	S1_RNO
+101		2000			1
+102		2500			2
+103		3500			3
+104		2000			4
+105		2500			5
+
+
+Select S1_fee from Stud1  where S1_fee > (Select S1_fee from Stud1 where S1_ID = 101);
+S1_FEE
+2500
+3500
+2500
+
+Select S1_fee,S1_ID from Stud1 where S1_ID = (Select min(S1_ID)from Stud1);
+S1_FEE	S1_ID
+2000		101
+
+------------------------Equi Join Query--------------------------------------------------------
+Select S1_fee,S_name from Stud1 S1,Student S where S1_rno = S_rno;
+
+S1_FEE	S_NAME
+2000		Amruta
+2500		Shree
+2000		Sai
+2500		Raj
+3500		Hari
+
+------------------------Outer Join Query--------------------------------------------------------
+Select S.S_rno,S1.S1_rno,S.S_name from Student S,Stud1 S1 where S_rno(+) = S1_rno;
+S_RNO	S1_RNO	S_NAME
+1			1	Amruta
+2			2	Shree
+4			4	Sai
+5			5	Raj
+3			3	Hari
+
+------------------------Left Outer Join Query--------------------------------------------------------
+
+Select  * from Stud1 left outer join Student on Stud1.S1_rno= Student.S_rno;
+S1_ID	S1_FEE	S1_RNO	S_RNO	S_NAME	S_MNO
+101		2000			1		1	Amruta	9786543218
+102		2500			2		2	Shree	7890543215
+104		2000			4		4	Sai		8899776688
+105		2500			5		5	Raj		7890098765
+103		3500			3		3	Hari		6789045321
+
+------------------------Right Outer Join Query--------------------------------------------------------
+Select * from Stud1 right outer join Student on Stud1.S1_rno= Student.S_rno;
+S1_ID	S1_FEE	S1_RNO	S_RNO	S_NAME	S_MNO
+101		2000	      	  1	          1		Amruta	9786543218
+102		2500		2		2		Shree	7890543215
+103		3500		3		3		Hari		6789045321
+104		2000		4		4		Sai		8899776688
+105		2500		5		5 		Raj		7890098765
+
+------------------------Full Outer Join Query--------------------------------------------------------
+Select S_rno,S_name from Student S, Stud1 S1 where S_rno=S1_rno;
+S_RNO	S_NAME
+1		Amruta
+2		Shree
+3		Hari
+4		Sai
+5		Raj
+
+------------------------Self Join Query--------------------------------------------------------
+Select S.S_rno,nvl(S_name,'No Student')S_name from Student S,Stud1 S1 where S1_rno =S_rno(+);
+S_RNO	S_NAME
+1		Amruta
+2		Shree
+4		Sai
+5		Raj
+3		Hari
